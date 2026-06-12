@@ -1,0 +1,22 @@
+<!-- @dsCard group="Spacing" viewport="700x190" subtitle="The signature: 2px brown frame → orange on hover/focus · 2–6px radii" name="Frame, focus & radius" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { padding: 20px 24px; }
+  .demo { display: flex; gap: 14px; align-items: stretch; }
+  .box { flex: 1; border: var(--mk-border-w) solid var(--mk-border); border-radius: var(--mk-radius-lg); background: var(--mk-surface-1); padding: 12px 14px; font-family: var(--mk-font-mono); font-size: 11px; color: var(--mk-text-2); }
+</style>
+</head>
+<body class="mk-no-scanlines">
+  <div class="demo">
+    <div class="box">rest<br><span class="mk-faint">2px var(--mk-border)</span></div>
+    <div class="box" style="border-color: var(--mk-border-strong);">hover<br><span class="mk-faint">border-strong</span></div>
+    <div class="box" style="border-color: var(--mk-accent);">interactive hover<br><span class="mk-faint">accent frame</span></div>
+    <div class="box" style="outline: 2px solid var(--mk-focus); outline-offset: 2px;">focus<br><span class="mk-faint">2px ring, offset 2</span></div>
+  </div>
+  <p class="mk-hint" style="margin: 14px 0 0;">radii: 2 / 4 / 6px — near-square, terminal-honest. spacing scale: 4·8·12·16·24·32·48·72.</p>
+</body>
+</html>

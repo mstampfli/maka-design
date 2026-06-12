@@ -1,0 +1,21 @@
+<!-- @dsCard group="Components" viewport="700x300" subtitle="mono uppercase heads · tabular numerals · status tags · row hover" name="Table" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style> body { padding: 16px 20px; } </style>
+</head>
+<body class="mk-no-scanlines">
+  <div class="mk-table-wrap">
+    <table class="mk-table">
+      <thead><tr><th>process</th><th>status</th><th class="is-num">cpu %</th><th class="is-num">mem</th></tr></thead>
+      <tbody>
+        <tr><td class="mk-mono">maka-kernel</td><td><span class="mk-tag mk-tag--success">running</span></td><td class="is-num">2.4</td><td class="is-num">128 MB</td></tr>
+        <tr><td class="mk-mono">net-stack</td><td><span class="mk-tag mk-tag--warn">degraded</span></td><td class="is-num">11.6</td><td class="is-num">96 MB</td></tr>
+        <tr><td class="mk-mono">updater</td><td><span class="mk-tag mk-tag--danger">crashed</span></td><td class="is-num">—</td><td class="is-num">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

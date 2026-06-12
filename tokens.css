@@ -1,0 +1,110 @@
+/* ============================================================
+   MAKA — design tokens
+   Recolor the entire system by editing this file only.
+   Dark is the default theme; set data-theme="light" on <html>
+   for the paper variant.
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- base palette · dark (roasted) ---- */
+  --mk-brown-0: #1a120b;   /* page — deep roasted brown */
+  --mk-brown-1: #221810;   /* surface */
+  --mk-brown-2: #2b1e13;   /* raised surface */
+  --mk-brown-3: #140d07;   /* inset / wells */
+  --mk-clay-1:  #3c2a19;   /* border */
+  --mk-clay-2:  #5a4023;   /* border, strong */
+  --mk-cream-1: #f4ead9;   /* text */
+  --mk-cream-2: #c7b299;   /* text, muted */
+  --mk-cream-3: #8d7456;   /* text, faint */
+  --mk-orange-1: #e0731d;  /* burnt orange — primary accent */
+  --mk-orange-2: #f08a33;  /* accent, hover */
+  --mk-amber-1:  #eda43d;  /* amber highlight */
+  --mk-red-1:    #d9503c;  /* danger */
+  --mk-red-2:    #e8654f;  /* danger, hover */
+  --mk-green-1:  #8fa05a;  /* success (sage) */
+
+  /* ---- semantic · surfaces ---- */
+  --mk-surface-page:  var(--mk-brown-0);
+  --mk-surface-1:     var(--mk-brown-1);   /* cards, navbar, footer */
+  --mk-surface-2:     var(--mk-brown-2);   /* table heads, code bars */
+  --mk-surface-inset: var(--mk-brown-3);   /* inputs, code wells */
+
+  /* ---- semantic · lines (the signature 2px frame) ---- */
+  --mk-border:        var(--mk-clay-1);
+  --mk-border-strong: var(--mk-clay-2);
+  --mk-border-w:      2px;
+
+  /* ---- semantic · ink ---- */
+  --mk-text-1: var(--mk-cream-1);
+  --mk-text-2: var(--mk-cream-2);
+  --mk-text-3: var(--mk-cream-3);
+
+  /* ---- semantic · accent + status ---- */
+  --mk-accent:        var(--mk-orange-1);
+  --mk-accent-hover:  var(--mk-orange-2);
+  --mk-on-accent:     #1a120b;
+  --mk-highlight:     var(--mk-amber-1);
+  --mk-danger:        var(--mk-red-1);
+  --mk-danger-hover:  var(--mk-red-2);
+  --mk-success:       var(--mk-green-1);
+  --mk-warn:          var(--mk-amber-1);
+  --mk-focus:         var(--mk-orange-1);
+
+  /* ---- texture ---- */
+  --mk-scanline: rgba(255, 214, 165, 0.03);
+
+  /* ---- type ---- */
+  --mk-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --mk-font-sans: "IBM Plex Sans", system-ui, "Helvetica Neue", sans-serif;
+  --mk-text-xs: 11px;
+  --mk-text-sm: 13px;
+  --mk-text-md: 15px;
+  --mk-text-lg: 18px;
+  --mk-text-xl: 24px;
+  --mk-text-2xl: 34px;
+  --mk-text-3xl: 48px;
+
+  /* ---- geometry ---- */
+  --mk-radius-sm: 2px;
+  --mk-radius:    4px;
+  --mk-radius-lg: 6px;
+  --mk-space-1: 4px;
+  --mk-space-2: 8px;
+  --mk-space-3: 12px;
+  --mk-space-4: 16px;
+  --mk-space-5: 24px;
+  --mk-space-6: 32px;
+  --mk-space-7: 48px;
+  --mk-space-8: 72px;
+
+  /* ---- elevation (used sparingly; borders carry depth) ---- */
+  --mk-shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================
+   LIGHT VARIANT — cream / paper. Same orange, brown ink.
+   ============================================================ */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --mk-brown-0: #f1e8d8;   /* page — paper cream */
+  --mk-brown-1: #f8f1e3;   /* surface */
+  --mk-brown-2: #ece0ca;   /* raised surface */
+  --mk-brown-3: #fbf6ec;   /* inset / wells */
+  --mk-clay-1:  #d3c0a4;   /* border */
+  --mk-clay-2:  #ab9170;   /* border, strong */
+  --mk-cream-1: #2e1f10;   /* text — dark roast */
+  --mk-cream-2: #6e5942;   /* text, muted */
+  --mk-cream-3: #99836a;   /* text, faint */
+  --mk-orange-1: #c75f0d;  /* slightly deeper for contrast on cream */
+  --mk-orange-2: #e0731d;
+  --mk-amber-1:  #9c6b10;
+  --mk-red-1:    #b83a28;
+  --mk-red-2:    #d9503c;
+  --mk-green-1:  #5f7034;
+
+  --mk-scanline: rgba(80, 50, 20, 0.035);
+  --mk-shadow-pop: 0 8px 24px rgba(70, 45, 20, 0.14);
+}

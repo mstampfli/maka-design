@@ -1,0 +1,36 @@
+<!-- @dsCard group="Components" viewport="700x260" subtitle="mono inputs in inset wells · orange focus border · error state" name="Forms" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { padding: 20px 24px; }
+  .g { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+</style>
+</head>
+<body class="mk-no-scanlines">
+  <div class="g">
+    <div class="mk-field">
+      <label class="mk-label">hostname</label>
+      <input class="mk-input" type="text" placeholder="maka-01">
+      <span class="mk-hint">lowercase, a–z and dashes</span>
+    </div>
+    <div class="mk-field">
+      <label class="mk-label">region</label>
+      <div class="mk-select-wrap">
+        <select class="mk-select"><option>us-west</option><option>eu-central</option></select>
+      </div>
+    </div>
+    <div class="mk-field mk-field--error">
+      <label class="mk-label">ssh key</label>
+      <input class="mk-input" type="text" value="ssh-rsa AAAB3…">
+      <span class="mk-hint">error: key is truncated</span>
+    </div>
+    <div class="mk-field" style="justify-content: center; gap: 10px;">
+      <label class="mk-check"><input type="checkbox" checked> auto-restart</label>
+      <label class="mk-check"><input type="radio" checked> small instance</label>
+    </div>
+  </div>
+</body>
+</html>

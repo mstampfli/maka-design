@@ -1,0 +1,4 @@
+/* MAKA design system — global entry. Consumers link this one file. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+@import url("./tokens.css");
+@import url("./maka.css");

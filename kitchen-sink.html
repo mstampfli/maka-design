@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maka — kitchen sink</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* apply saved theme before paint */
+  (function () {
+    var t = localStorage.getItem("maka-theme");
+    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+  })();
+</script>
+<style>
+  /* demo-page-only layout helpers */
+  .sink-section { margin: 72px 0; }
+  .sink-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sink-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .sink-grid-3, .sink-grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="mk-navbar" data-screen-label="Navbar">
+    <a class="mk-navbar__brand" href="#"><span class="mk-logo-mark"></span>MAKA</a>
+    <div class="mk-navbar__links">
+      <a class="mk-navbar__link is-active" href="#">overview</a>
+      <a class="mk-navbar__link" href="#">tokens</a>
+      <a class="mk-navbar__link" href="#">components</a>
+      <a class="mk-navbar__link" href="#">docs</a>
+      <button class="mk-btn mk-btn--ghost mk-btn--sm" id="theme-toggle" type="button">[ light_mode ]</button>
+    </div>
+  </nav>
+
+  <main class="mk-container">
+
+    <!-- hero -->
+    <header class="sink-section" data-screen-label="Hero">
+      <span class="mk-kicker">design system · v1.0</span>
+      <h1>Maka</h1>
+      <p class="mk-muted" style="max-width: 56ch;">Warm, earthy, slightly retro-terminal. Dark by default,
+        paper-light on request. Every color, border, and letter-spacing on this page derives
+        from <code>tokens.css</code> — recolor the whole system by editing one file.</p>
+      <div class="mk-row" style="margin-top: 24px;">
+        <button class="mk-btn mk-btn--primary">get_started</button>
+        <button class="mk-btn mk-btn--ghost">view tokens</button>
+        <a href="#" style="font-family: var(--mk-font-mono); font-size: var(--mk-text-sm);">read the docs →</a>
+      </div>
+    </header>
+
+    <!-- buttons -->
+    <section class="sink-section" data-screen-label="Buttons">
+      <span class="mk-kicker">components / buttons</span>
+      <h2>Buttons</h2>
+      <div class="mk-stack">
+        <div class="mk-row">
+          <button class="mk-btn mk-btn--primary">primary</button>
+          <button class="mk-btn mk-btn--ghost">ghost</button>
+          <button class="mk-btn mk-btn--danger">danger</button>
+          <button class="mk-btn mk-btn--primary" disabled>disabled</button>
+          <button class="mk-btn mk-btn--ghost" disabled>disabled</button>
+        </div>
+        <div class="mk-row">
+          <button class="mk-btn mk-btn--primary mk-btn--sm">small</button>
+          <button class="mk-btn mk-btn--ghost mk-btn--sm">small ghost</button>
+          <button class="mk-btn mk-btn--primary mk-btn--lg">large</button>
+          <button class="mk-btn mk-btn--ghost mk-btn--lg">large ghost</button>
+        </div>
+        <p class="mk-hint">hover a ghost button — the brown frame turns orange. that frame is the maka signature.</p>
+      </div>
+    </section>
+
+    <!-- cards -->
+    <section class="sink-section" data-screen-label="Cards">
+      <span class="mk-kicker">components / cards</span>
+      <h2>Cards</h2>
+      <div class="sink-grid-3">
+        <div class="mk-card">
+          <div class="mk-card__body">
+            <h4>Plain card</h4>
+            <p class="mk-muted" style="font-size: var(--mk-text-sm);">A surface with the 2px frame.
+              Hover strengthens the border; nothing shouts.</p>
+          </div>
+        </div>
+        <div class="mk-card">
+          <div class="mk-card__header">
+            <h3 class="mk-card__title">with_header</h3>
+            <span class="mk-tag mk-tag--accent" style="margin-left: auto;">new</span>
+          </div>
+          <div class="mk-card__body">
+            <p class="mk-muted" style="font-size: var(--mk-text-sm);">Header and footer rows use the same
+              2px rule as the outer frame.</p>
+          </div>
+          <div class="mk-card__footer">
+            <button class="mk-btn mk-btn--ghost mk-btn--sm">cancel</button>
+            <button class="mk-btn mk-btn--primary mk-btn--sm">save</button>
+          </div>
+        </div>
+        <a class="mk-card mk-card--link" href="#" style="display: block; color: inherit; text-decoration: none;">
+          <div class="mk-card__body">
+            <h4>Link card →</h4>
+            <p class="mk-muted" style="font-size: var(--mk-text-sm);">Interactive cards earn the orange
+              frame on hover. Try it.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- forms -->
+    <section class="sink-section" data-screen-label="Forms">
+      <span class="mk-kicker">components / forms</span>
+      <h2>Forms</h2>
+      <div class="mk-card" style="max-width: 720px;">
+        <div class="mk-card__header"><h3 class="mk-card__title">new_instance</h3></div>
+        <div class="mk-card__body">
+          <div class="mk-stack">
+            <div class="sink-grid-2">
+              <div class="mk-field">
+                <label class="mk-label" for="f-name">hostname</label>
+                <input class="mk-input" id="f-name" type="text" placeholder="maka-01">
+                <span class="mk-hint">lowercase, a–z and dashes</span>
+              </div>
+              <div class="mk-field">
+                <label class="mk-label" for="f-region">region</label>
+                <div class="mk-select-wrap">
+                  <select class="mk-select" id="f-region">
+                    <option>us-west</option>
+                    <option>us-east</option>
+                    <option>eu-central</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="mk-field mk-field--error">
+              <label class="mk-label" for="f-key">ssh public key</label>
+              <input class="mk-input" id="f-key" type="text" value="ssh-rsa AAAB3…">
+              <span class="mk-hint">error: key is truncated</span>
+            </div>
+            <div class="mk-field">
+              <label class="mk-label" for="f-notes">notes</label>
+              <textarea class="mk-textarea" id="f-notes" placeholder="optional"></textarea>
+            </div>
+            <div class="mk-row" style="gap: 24px;">
+              <label class="mk-check"><input type="checkbox" checked> auto-restart</label>
+              <label class="mk-check"><input type="checkbox"> public ip</label>
+              <label class="mk-check"><input type="checkbox" disabled> gpu (soon)</label>
+            </div>
+            <div class="mk-row" style="gap: 24px;">
+              <label class="mk-check"><input type="radio" name="size" checked> small</label>
+              <label class="mk-check"><input type="radio" name="size"> medium</label>
+              <label class="mk-check"><input type="radio" name="size"> large</label>
+            </div>
+          </div>
+        </div>
+        <div class="mk-card__footer">
+          <button class="mk-btn mk-btn--ghost">cancel</button>
+          <button class="mk-btn mk-btn--primary">create</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- table -->
+    <section class="sink-section" data-screen-label="Table">
+      <span class="mk-kicker">components / table</span>
+      <h2>Tables</h2>
+      <div class="mk-table-wrap">
+        <table class="mk-table">
+          <thead>
+            <tr><th>process</th><th>owner</th><th>status</th><th class="is-num">cpu %</th><th class="is-num">mem</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="mk-mono">maka-kernel</td><td>root</td><td><span class="mk-tag mk-tag--success">running</span></td><td class="is-num">2.4</td><td class="is-num">128 MB</td></tr>
+            <tr><td class="mk-mono">fs-daemon</td><td>root</td><td><span class="mk-tag mk-tag--success">running</span></td><td class="is-num">0.8</td><td class="is-num">42 MB</td></tr>
+            <tr><td class="mk-mono">net-stack</td><td>system</td><td><span class="mk-tag mk-tag--warn">degraded</span></td><td class="is-num">11.6</td><td class="is-num">96 MB</td></tr>
+            <tr><td class="mk-mono">shell</td><td>user</td><td><span class="mk-tag">idle</span></td><td class="is-num">0.1</td><td class="is-num">8 MB</td></tr>
+            <tr><td class="mk-mono">updater</td><td>system</td><td><span class="mk-tag mk-tag--danger">crashed</span></td><td class="is-num">—</td><td class="is-num">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- code -->
+    <section class="sink-section" data-screen-label="Code">
+      <span class="mk-kicker">components / code</span>
+      <h2>Code</h2>
+      <p class="mk-muted">Inline code like <code>--mk-accent</code> sits in a small well.
+        Blocks get a labeled bar:</p>
+      <div class="mk-code">
+        <div class="mk-code__bar"><span class="mk-code__dot"></span>boot.sh</div>
+        <pre><code><span class="tok-c"># bring up a maka node</span>
+<span class="tok-p">$ </span>maka init <span class="tok-s">--profile=warm</span>
+<span class="tok-p">$ </span>maka theme set <span class="tok-s">"roasted"</span>
+
+<span class="tok-k">if</span> status == <span class="tok-n">OK</span> {
+  emit(<span class="tok-s">"ready"</span>)   <span class="tok-c"># amber strings, orange keywords</span>
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- alerts -->
+    <section class="sink-section" data-screen-label="Alerts">
+      <span class="mk-kicker">components / alerts</span>
+      <h2>Alerts</h2>
+      <div class="mk-stack">
+        <div class="mk-alert">
+          <span class="mk-alert__tag">[ info ]</span>
+          <div class="mk-alert__body">Neutral notice. Same frame, no tint — information shouldn't shout.</div>
+        </div>
+        <div class="mk-alert mk-alert--success">
+          <span class="mk-alert__tag">[ ok ]</span>
+          <div class="mk-alert__body">Build complete. Sage green, kept earthy to stay in the palette.</div>
+        </div>
+        <div class="mk-alert mk-alert--warn">
+          <span class="mk-alert__tag">[ warn ]</span>
+          <div class="mk-alert__body">Disk at 81%. Amber highlight doing its one job.</div>
+        </div>
+        <div class="mk-alert mk-alert--danger">
+          <span class="mk-alert__tag">[ fail ]</span>
+          <div class="mk-alert__body">Connection lost. Warm red — alarming, but still in the family.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="mk-footer" data-screen-label="Footer">
+    <div class="mk-footer__grid">
+      <div>
+        <a class="mk-navbar__brand" href="#" style="margin-bottom: 12px;"><span class="mk-logo-mark"></span>MAKA</a>
+        <p class="mk-muted" style="font-size: var(--mk-text-sm); max-width: 32ch; margin-top: 12px;">
+          A warm little operating system, and the design language around it.</p>
+      </div>
+      <div>
+        <h5 class="mk-footer__heading">system</h5>
+        <div class="mk-footer__links"><a href="#">tokens</a><a href="#">components</a><a href="#">changelog</a></div>
+      </div>
+      <div>
+        <h5 class="mk-footer__heading">docs</h5>
+        <div class="mk-footer__links"><a href="#">getting started</a><a href="#">theming</a><a href="#">recipes</a></div>
+      </div>
+      <div>
+        <h5 class="mk-footer__heading">elsewhere</h5>
+        <div class="mk-footer__links"><a href="#">source</a><a href="#">issues</a><a href="#">rss</a></div>
+      </div>
+    </div>
+    <div class="mk-footer__bottom">
+      <span>© 2026 maka</span>
+      <span>built on tokens.css · dark by default</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      var root = document.documentElement;
+      function label() {
+        btn.textContent = root.getAttribute("data-theme") === "light" ? "[ dark_mode ]" : "[ light_mode ]";
+      }
+      btn.addEventListener("click", function () {
+        var light = root.getAttribute("data-theme") === "light";
+        if (light) { root.removeAttribute("data-theme"); localStorage.setItem("maka-theme", "dark"); }
+        else { root.setAttribute("data-theme", "light"); localStorage.setItem("maka-theme", "light"); }
+        label();
+      });
+      label();
+    })();
+  </script>
+</body>
+</html>
