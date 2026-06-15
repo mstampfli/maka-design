@@ -187,7 +187,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   /* Fill the notch / Dynamic Island safe-area with the bar's OWN background, so the
      bar runs to the physical top (under, around, and above the island), not just
      under it. env(...) is 0 on non-notched devices, so desktop is unchanged. */
-  padding: calc(var(--mk-space-2) + env(safe-area-inset-top)) max(var(--mk-space-5), env(safe-area-inset-right)) var(--mk-space-2) max(var(--mk-space-5), env(safe-area-inset-left));
+  padding: calc(var(--mk-space-2) + var(--mk-safe-top, env(safe-area-inset-top))) max(var(--mk-space-5), env(safe-area-inset-right)) var(--mk-space-2) max(var(--mk-space-5), env(safe-area-inset-left));
   background: var(--mk-surface-1);
   border-bottom: var(--mk-border-w) solid var(--mk-border);
 }
