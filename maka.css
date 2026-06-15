@@ -34,6 +34,22 @@ body::before {
 }
 body.mk-no-scanlines::before { display: none; }
 
+/* Fixed bar-colored strip filling the top safe area (notch / Dynamic Island), so
+   nothing shows through behind the status bar even while scrolling. Height comes
+   from --mk-safe-top (set by JS, because iOS env(safe-area-inset-top) is 0 in
+   portrait); 0 on devices without a safe area, so it simply doesn't appear. */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--mk-safe-top, env(safe-area-inset-top, 0px));
+  background: var(--mk-surface-1);
+  z-index: 200;
+  pointer-events: none;
+}
+
 img, svg, video { display: block; max-width: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
