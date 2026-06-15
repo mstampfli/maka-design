@@ -243,11 +243,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .mk-card--link:hover { border-color: var(--mk-accent); }
 .mk-card__header {
   display: flex;
+  flex-wrap: wrap;     /* title + tags wrap to new rows instead of overflowing a narrow card */
   align-items: center;
   gap: var(--mk-space-3);
   padding: var(--mk-space-3) var(--mk-space-4);
   border-bottom: var(--mk-border-w) solid var(--mk-border);
 }
+.mk-card__title { min-width: 0; }   /* allow the title to shrink rather than push tags out */
 .mk-card__title {
   margin: 0;
   font-family: var(--mk-font-mono);
