@@ -11,6 +11,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
+  overflow-x: clip;   /* never scroll sideways: wide content (code) scrolls within its own box */
   background: var(--mk-surface-page);
   color: var(--mk-text-1);
   font: 400 var(--mk-text-md)/1.65 var(--mk-font-sans);
@@ -183,7 +184,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
   align-items: center;
   gap: var(--mk-space-2) var(--mk-space-6);
   min-height: 60px;                         /* min, not fixed, so a wrapped row can grow */
-  padding: var(--mk-space-2) var(--mk-space-5);
+  /* Fill the notch / Dynamic Island safe-area with the bar's OWN background, so the
+     bar runs to the physical top (under, around, and above the island), not just
+     under it. env(...) is 0 on non-notched devices, so desktop is unchanged. */
+  padding: calc(var(--mk-space-2) + env(safe-area-inset-top)) max(var(--mk-space-5), env(safe-area-inset-right)) var(--mk-space-2) max(var(--mk-space-5), env(safe-area-inset-left));
   background: var(--mk-surface-1);
   border-bottom: var(--mk-border-w) solid var(--mk-border);
 }
@@ -389,6 +393,8 @@ code {
   border: var(--mk-border-w) solid var(--mk-border);
   border-radius: var(--mk-radius-lg);
   overflow: hidden;
+  min-width: 0;     /* shrink inside flex/grid so the <pre> scrolls, not the page */
+  max-width: 100%;
 }
 .mk-code__bar {
   display: flex;
