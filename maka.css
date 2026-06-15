@@ -179,10 +179,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------------- navbar ---------------- */
 .mk-navbar {
   display: flex;
+  flex-wrap: wrap;                          /* wrap instead of pushing items off-screen */
   align-items: center;
-  gap: var(--mk-space-6);
-  height: 60px;
-  padding: 0 var(--mk-space-5);
+  gap: var(--mk-space-2) var(--mk-space-6);
+  min-height: 60px;                         /* min, not fixed, so a wrapped row can grow */
+  padding: var(--mk-space-2) var(--mk-space-5);
   background: var(--mk-surface-1);
   border-bottom: var(--mk-border-w) solid var(--mk-border);
 }
@@ -207,6 +208,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .mk-navbar__links {
   display: flex;
+  flex-wrap: wrap;                          /* links + buttons wrap rather than overflow */
   align-items: center;
   gap: var(--mk-space-1);
   margin-left: auto;
