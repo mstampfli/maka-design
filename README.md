@@ -24,7 +24,7 @@ Maka is a warm, earthy, slightly retro-terminal design language built for the Ma
 - **Focus**: terminal-style, `2px solid var(--mk-focus)` outline, `outline-offset: 2px`, on everything via `:focus-visible`. Inputs instead swap their border to orange.
 - **Hover states**: border-color changes, never background washes (except table rows, which tint to `--mk-surface-2`).
 - **Selection**: orange background, dark-roast text.
-- **Layout / wrapping rows**: rows are wrapping flexbox (`.mk-row`, `.mk-card__header`) and left-align by default. To drop a status badge or any item onto its own line, put `.mk-break` before it: it breaks the row so the next item starts a new line at its natural width, still left-aligned. Status badges go on a new line at the left, never right-pushed.
+- **Layout / wrapping rows**: rows are wrapping flexbox (`.mk-row`, `.mk-card__header`) and left-align by default. To drop a status badge or any item onto its own line, wrap it in `.mk-break`: the wrapper spans the full row so its contents start a new line at the left, at natural width, separated by the row's normal gap (one gap, not two). Status badges go on a new line at the left, never right-pushed.
 
 ## Content fundamentals
 
