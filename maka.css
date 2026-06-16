@@ -520,3 +520,8 @@ code {
 .mk-container { max-width: 1080px; margin: 0 auto; padding: 0 var(--mk-space-5); }
 .mk-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--mk-space-3); }
 .mk-stack { display: flex; flex-direction: column; gap: var(--mk-space-4); }
+/* Force a line break inside a wrapping flex row (.mk-row, .mk-card__header, etc.).
+   Anything placed after .mk-break drops to a new line and left-aligns (the row's
+   default flex-start), at its natural width. Use it so a status badge or similar
+   sits on its own line at the left instead of inline or pushed to the right. */
+.mk-break { flex-basis: 100%; height: 0; margin: 0; padding: 0; border: 0; }
