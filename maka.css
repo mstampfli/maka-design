@@ -62,6 +62,18 @@ hr {
 
 button, input, select, textarea { font: inherit; color: inherit; }
 
+/* Pointer on everything interactive (native buttons default to the arrow cursor),
+   not-allowed when disabled. One place, so it always holds. */
+button:not(:disabled):not([disabled]),
+[role="button"]:not([aria-disabled="true"]),
+select:not(:disabled),
+summary,
+label:has(> input[type="checkbox"]),
+label:has(> input[type="radio"]) { cursor: pointer; }
+button:disabled, button[disabled],
+[role="button"][aria-disabled="true"],
+select:disabled, input:disabled { cursor: not-allowed; }
+
 ::selection { background: var(--mk-accent); color: var(--mk-on-accent); }
 
 /* terminal focus ring, everywhere */
@@ -238,7 +250,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border-radius: var(--mk-radius-lg);
   transition: border-color 120ms ease;
 }
-.mk-card:hover { border-color: var(--mk-border-strong); }
+/* Only react to hover when the card is actually a link/clickable. A plain card
+   that does nothing should not light up. */
 .mk-card--link { cursor: pointer; }
 .mk-card--link:hover { border-color: var(--mk-accent); }
 .mk-card__header {
