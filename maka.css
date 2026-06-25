@@ -65,6 +65,10 @@ hr {
 
 button, input, select, textarea { font: inherit; color: inherit; }
 
+/* Native <select> dropdowns: the option list uses the Maka surface (brown in dark,
+   cream in light) instead of the OS grey. */
+select, option { background-color: var(--mk-surface-1); color: var(--mk-text-1); }
+
 /* Pointer on everything interactive (native buttons default to the arrow cursor),
    not-allowed when disabled. One place, so it always holds. */
 button:not(:disabled):not([disabled]),
