@@ -52,7 +52,10 @@ h4 { font-size: var(--mk-text-lg); }
 p { margin: 0 0 1em; text-wrap: pretty; }
 
 a { color: var(--mk-accent); text-decoration: none; }
-a:hover { color: var(--mk-accent-hover); text-decoration: underline; text-underline-offset: 3px; }
+/* Exclude buttons: an <a class="mk-btn"> must keep ITS own text colour. Otherwise the
+   link-hover colour leaks in and turns a filled (orange) button's text orange-on-orange,
+   making it unreadable on hover. The .mk-btn variants own their colours. */
+a:not(.mk-btn):hover { color: var(--mk-accent-hover); text-decoration: underline; text-underline-offset: 3px; }
 
 hr {
   border: none;
